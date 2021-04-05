@@ -27,6 +27,14 @@ Route::get('admin/home', [App\Http\Controllers\AdminController::class, 'index'])
     ->name('admin.home')
     ->middleware('isadmin');
 
-    Route::get('admin/books', [App\Http\Controllers\AdminController::class, 'books'])
+Route::get('admin/books', [App\Http\Controllers\AdminController::class, 'books'])
     ->name('admin.books')
+    ->middleware('isadmin');
+
+Route::post('admin/book', [App\Http\Controllers\AdminController::class, 'submit_book'])
+    ->name('admin.books.submit')
+    ->middleware('isadmin');
+
+Route::delete('admin/books/delete', [App\Http\Controllers\AdminController::class, 'delete_book'])
+    ->name('admin.books.delete')
     ->middleware('isadmin');
